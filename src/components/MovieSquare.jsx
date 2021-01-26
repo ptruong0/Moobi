@@ -8,7 +8,7 @@ function MovieSquare(props) {
             <h3 id="movie-title">{props.movie.title}</h3>
             <img 
             src={base_img_url + props.movie.poster_path} 
-            alt="Image could not load" 
+            alt=""
             id="poster_img"
             height="300"
             width="200"
