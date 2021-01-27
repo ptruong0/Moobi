@@ -1,5 +1,7 @@
 import React from 'react';
 import MovieSquare from './MovieSquare.jsx';
+import Grid from '@material-ui/core/Grid';
+import env from 'react-dotenv';
 
 class MovieBody extends React.Component {
     constructor() {
@@ -7,11 +9,10 @@ class MovieBody extends React.Component {
         this.state = {
             movies: []
         }
-        this.api_key = '66c7dffb7d1824e07f936689453f6be8'
     }
 
     async componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+this.api_key+'&language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+env.API_KEY+'&language=en-US&page=1')
         .then(res => res.json())
         .then(
             (res) => {
@@ -31,7 +32,9 @@ class MovieBody extends React.Component {
         )
         return (
             <div className="movie-grid">
+                <Grid container direction="">
                 {movieComponents}
+                </Grid>
             </div>
         );
     }
