@@ -1,12 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logoSrc from '../assets/moobi_logo.png';
 
 function Header() {
     return (
         <div className="header">
-            <h1 id="title">MOOBI</h1>
+            <div className="title-and-logo">
+                <img src={logoSrc} id="logo-img" alt="" />
+                <h1 id="title">MOOBI</h1>
+            </div>
             <ul className="nav-links">
-            <Link to='/search'>
+                <Link to='/search'>
                     <li className="nav-text">Search</li>
                 </Link>
                 <Link to='/lib'>

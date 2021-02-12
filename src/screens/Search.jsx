@@ -3,7 +3,8 @@ import React from 'react';
 import env from 'react-dotenv';
 import Grid from '@material-ui/core/Grid';
 
-import MovieSquare from '../components/MovieSquare';
+import MovieSquare from '../components/MovieSquare.jsx';
+import SearchBar from '../components/SearchBar.jsx';
 
 class Search extends React.Component {
     constructor() {
@@ -29,7 +30,7 @@ class Search extends React.Component {
                     });
                 })
                 .catch((err) => console.log(err));
-        }
+        } 
     }
 
     render() {
@@ -54,13 +55,5 @@ class Search extends React.Component {
         );
     }
 }
-const SearchBar = (props) => {
-    return (
-        <div>
-            <form onSubmit={props.handleSubmit} id="search-form">
-                <input type="text" name="search" placeholder="Enter movie keywords..." id="search-bar" ></input>
-                <input type="submit" className="submit-btn" />
-            </form></div>
-    );
-}
+
 export default Search;

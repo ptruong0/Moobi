@@ -12,29 +12,32 @@ class MovieBody extends React.Component {
     }
 
     async componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+env.API_KEY+'&language=en-US&page=1')
-        .then(res => res.json())
-        .then(
-            (res) => {
-                console.log(res.results);
-                this.setState({
-                    movies: res.results
-                });
-            })
-        .catch((err) => {
-            console.log(err)
-        });
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + env.API_KEY + '&language=en-US&page=1')
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    console.log(res.results);
+                    this.setState({
+                        movies: res.results
+                    });
+                })
+            .catch((err) => {
+                console.log(err)
+            });
     }
 
     render() {
         var movieComponents = this.state.movies.map(
-            (movie) => <MovieSquare key={movie.id} movie={movie}/>
+            (movie) => <MovieSquare key={movie.id} movie={movie} />
         )
         return (
-            <div className="movie-grid">
-                <Grid container direction="">
-                {movieComponents}
-                </Grid>
+            <div>
+                <h2 style={{paddingLeft: "50px"}} >Trending Movies</h2> 
+                <div className="movie-grid">
+                    <Grid container direction="">
+                        {movieComponents}
+                    </Grid>
+                </div>
             </div>
         );
     }
